@@ -9,6 +9,7 @@ use App\Http\Controllers\select2;
 use App\Http\Controllers\scroll;
 use App\Http\Controllers\datatableController;
 use App\Http\Controllers\apiformController;
+use App\Http\Controllers\chartsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,3 +51,5 @@ Route::get('/datatable/create',[datatableController::class,'create'])->name('hom
 Route::get('/apiform',[apiformController::class,'index'])->name('homepage.apiform');
 Route::get('/apiform/show',[apiformController::class,'show'])->name('homepage.apiform.show');
 Route::get('/apiform/create',[apiformController::class,'create'])->name('homepage.apiform.craete');
+
+Route::get('/charts',[chartsController::class,'index'])->name('homepage.charts');

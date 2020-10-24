@@ -4,11 +4,11 @@
         <div>
             <p>{{ session('sumsg') }}</p>
         </div>
-        <form action="{{ route("user.signup.create") }}" method="post">
+        <form action="{{ route("user.signup.create") }}" method="post" id="signupform">
             @csrf
             <div class="form-group">
                 <label class="col-lg-2 col-form-label">name:</label>
-                <input type="text" name="name" value="" class="form-control1">
+                <input type="text" name="name" id="name" value="" class="form-control1">
             </div>
             <div class="form-group">
                 <label class="col-lg-2 col-form-label">username:</label>
@@ -16,7 +16,7 @@
             </div>
             <div class="form-group">
                 <label class="col-lg-2 col-form-label">password:</label>
-                <input type="password" name="password" value="" class="form-control1">
+                <input type="password" name="password" value="" id="password" class="form-control1">
             </div>
             <div class="form-group">
                 <label class="col-lg-2 col-form-label">confirm password:</label>

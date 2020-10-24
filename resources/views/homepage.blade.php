@@ -16,5 +16,8 @@
         <div>
             <a href="{{ route('homepage.apiform') }}"> api Datatable(problem)</a>
         </div>
+        <div>
+            <a href="{{ route('homepage.charts') }}"> charts</a>
+        </div>
     </div>
 @endsection
