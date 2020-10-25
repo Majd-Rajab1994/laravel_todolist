@@ -16,9 +16,9 @@
             @endforeach
         ]);
 
-        var options = {'title':'How Much Pizza I Ate Last Night',
-                        'width':400,
-                        'height':300};
+        var options = {'title':'????????',
+                        'width':1200,
+                        'height':900};
 
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
         chart.draw(data, options);

@@ -10,6 +10,7 @@ use App\Http\Controllers\scroll;
 use App\Http\Controllers\datatableController;
 use App\Http\Controllers\apiformController;
 use App\Http\Controllers\chartsController;
+use App\Http\Controllers\mailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +54,6 @@ Route::get('/apiform/show',[apiformController::class,'show'])->name('homepage.ap
 Route::get('/apiform/create',[apiformController::class,'create'])->name('homepage.apiform.craete');
 
 Route::get('/charts',[chartsController::class,'index'])->name('homepage.charts');
+
+Route::get('/testmail',[mailController::class,'index'])->name('homepage.testmail');
+Route::get('/sendmail',[mailController::class],'index')->name('homepage.testmail.sendmail');
