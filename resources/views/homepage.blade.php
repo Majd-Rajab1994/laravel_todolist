@@ -19,5 +19,8 @@
         <div>
             <a href="{{ route('homepage.charts') }}"> charts</a>
         </div>
+        <div>
+            <a href="{{ route('homepage.testmail') }}">send mail</a>
+        </div>
     </div>
 @endsection

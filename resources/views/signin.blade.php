@@ -21,9 +21,7 @@
         </form>
     <a href="{{ route('user.signup') }}">Signup user</a>
     </div>
-    <div>
-        <a href="{{ route('homepage.testmail') }}">send mail</a>
-    </div>
+
     <script>
         $("#signinform").validate();
     </script>

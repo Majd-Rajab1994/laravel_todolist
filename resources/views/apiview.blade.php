@@ -25,7 +25,7 @@
 <script>
     $(document).ready(function() {
         $('#example').DataTable( {
-            "ajax": "route('homepage.apiform.show')",
+            "ajax": "{{ route('homepage.apiform.show') }}",
             "columns" : [
                 {"data" :"name"}
             ]
@@ -34,10 +34,10 @@
     function save1()
     {
         var url1;
-        url1 = "route('homepage.apiform.create')";
+        url1 = "{{ route('homepage.apiform.craete') }}";
         //alert($('#form').serialize());
         $.ajax({
-            type: "POST",
+            type: "post",
             url: url1,
             data: $('#form').serialize(),
             success: function(){
