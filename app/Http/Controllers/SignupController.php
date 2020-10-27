@@ -17,29 +17,36 @@ class SignupController extends Controller
         $password = $request->input('password');
         $cpassword = $request->input('cpassword');
         $email = $request->input('email');
-        if($name==null || $username == null || $password == null || $email == null)
-        {
-            return redirect()->route('user.signup')->with('sumsg','please fill all fields');
+        $rules = ['captcha' => 'required|captcha'];
+        $validator = validator()->make(request()->all(), $rules);
+        if ($validator->fails()) {
+            return redirect()->route('user.signin')->with('sumsg','captcha error');
         }
-        elseif($password != $cpassword)
-        {
-            return redirect()->route('user.signup')->with('sumsg','please enter right password');
-        }
-        else
-        {
-            $checkuser = users::where('name',$name)->orwhere('username',$username)->count();
-            if ($checkuser > 0) {
-                return redirect()->route('user.signup')->with('sumsg','that user already exist');
+        else {
+            if($name==null || $username == null || $password == null || $email == null)
+            {
+                return redirect()->route('user.signup')->with('sumsg','please fill all fields');
+            }
+            elseif($password != $cpassword)
+            {
+                return redirect()->route('user.signup')->with('sumsg','please enter right password');
             }
             else
             {
-                $user = new users();
-                $user->name = $name;
-                $user->username = $username;
-                $user->password = Hash::make($password);
-                $user->email =$email;
-                $user->save();
-                return redirect()->route('user.signin');
+                $checkuser = users::where('name',$name)->orwhere('username',$username)->count();
+                if ($checkuser > 0) {
+                    return redirect()->route('user.signup')->with('sumsg','that user already exist');
+                }
+                else
+                {
+                    $user = new users();
+                    $user->name = $name;
+                    $user->username = $username;
+                    $user->password = Hash::make($password);
+                    $user->email =$email;
+                    $user->save();
+                    return redirect()->route('user.signin');
+                }
             }
         }
     }

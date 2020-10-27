@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('apitest', [apiController::class,'index'])->name('apitest');
+Route::get('/apitest', [apiController::class,'index'])->name('apitest');
 Route::get('apitest/{id}', [apiController::class,'show']);
 Route::post('apitest', [apiController::class,'create'])->name('apicreate');
 Route::put('articles/{id}', [apiController::class,'update']);

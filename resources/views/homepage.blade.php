@@ -22,5 +22,8 @@
         <div>
             <a href="{{ route('homepage.testmail') }}">send mail</a>
         </div>
+        <div>
+            <a href="{{ route('homepage.storage') }}">storage</a>
+        </div>
     </div>
 @endsection

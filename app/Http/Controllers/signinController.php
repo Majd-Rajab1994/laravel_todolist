@@ -14,6 +14,7 @@ class signinController extends Controller
     public function checkuser(Request $request){
         $username = $request->input('username');
         $password = $request->input('password');
+
         $check = users::where('username',$username)->count();
         if($check > 0)
         {
@@ -32,5 +33,7 @@ class signinController extends Controller
         {
             return redirect()->route('user.signin')->with('simsg','this username is not exist');
         }
+
     }
+
 }

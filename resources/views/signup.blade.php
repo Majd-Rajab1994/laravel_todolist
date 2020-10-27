@@ -27,8 +27,28 @@
                 <input type="email" name="email" value="" class="form-control1">
             </div>
             <div class="form-group">
+                <label class="col-lg-2 col-form-label">captcha:</label>
+                <div class="captcha">
+                    <span> {!! captcha_img() !!} </span>
+                    <button type="button" class="btn btn-primary btn-refresh">refresh</button>
+                </div>
+                <input type="text" name="captcha" id="captcha" class="form-control1">
+            </div>
+            <div class="form-group">
                 <button type="submit" name="adduser" class="btn btn-primary">SAVE</button>
             </div>
         </form>
     </div>
+    <script>
+        $(".btn-refresh").click(function(){
+            $.ajax({
+                type: "get",
+                url: "{{ route('captcha.refresh') }}",
+                success: function (data) {
+                    //alert("dd");
+                    $(".captcha span").html(data.captch);
+                }
+            });
+        })
+    </script>
 @endsection

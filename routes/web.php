@@ -11,6 +11,9 @@ use App\Http\Controllers\datatableController;
 use App\Http\Controllers\apiformController;
 use App\Http\Controllers\chartsController;
 use App\Http\Controllers\mailController;
+use App\Http\Controllers\apiController;
+use App\Http\Controllers\captchController;
+use App\Http\Controllers\storageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +60,13 @@ Route::get('/charts',[chartsController::class,'index'])->name('homepage.charts')
 
 Route::get('/testmail',[mailController::class,'index'])->name('homepage.testmail');
 Route::get('/sendmail',[mailController::class],'index')->name('homepage.testmail.sendmail');
+
+Route::get('/captcha/refresh',[captchController::class,'refresh'])->name('captcha.refresh');
+
+Route::get('/homepage/storage',[storageController::class,'index'])->name('homepage.storage');
+Route::post('/homepage/storage/save',[storageController::class,'save'])->name('homepage.storage.save');
+
+
+
+
+
